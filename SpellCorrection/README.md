@@ -14,7 +14,7 @@
 #### P(e|c)的意思是给定正确单词c，拼写错误为e的概率，我们可以从比如搜索日志中获取，例如我们经常在搜索时遇到：
 #### 你是否想搜xxx，这里xxx就是系统提示的正确单词
 #### P(c)是正确单词的概率，比如apple可能是appl的一种正确拼写，但是app也可能是一种正确的拼写。
-#### 我们可以借助语言模型(https://en.wikipedia.org/wiki/Language_model)来描述这个概率,语言模型我们可以借助nltk或其他语料库来构建。
+#### 我们可以借助语言模型来描述这个概率,语言模型我们可以借助nltk或其他语料库来构建.(https://en.wikipedia.org/wiki/Language_model) 
 
 
 
