@@ -1,6 +1,6 @@
 # 句子拼写纠错(英文)
 
-## 例如:
+## 示例:
 #### French Finance Mrnistei Edouard Baelladur, meanwhile,  confirmed there would be a communique at the end of the  mnetieg.
 #### Mrnistei -> Minister
 #### Baelladur -> Balladur
