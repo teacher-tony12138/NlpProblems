@@ -15,6 +15,7 @@ spell_error_prob_file_path = "spell-errors.txt"
 # 测试数据路径
 test_data_file_path = "testdata.txt"
 
+
 def read_vacab(file_path):
     '''
     读入词汇表
@@ -26,6 +27,7 @@ def read_vacab(file_path):
         for line in f.readlines():
             vab_dict[line.rstrip()] = 1
     return vab_dict
+
 
 def read_spell_error_prob(file_path):
     '''
@@ -228,6 +230,3 @@ if __name__ == '__main__':
                 max_idx = prob_list.index(max(prob_list))
                 print("{}: {} -> {}".format(sen_idx, word, candidates[max_idx]))
         print("*" * 50)
-
-
-

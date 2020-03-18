@@ -23,6 +23,7 @@ snowball_stemmer = SnowballStemmer("english")
 # 停用词
 sWords = stopwords.words('english')
 
+
 def read_corpus(file_path):
     """
     读取给定的语料库，并把问题列表和答案列表分别写入到 qlist, alist 里面。 在此过程中，不用对字符换做任何的处理（这部分需要在 Part 2.3里处理）
@@ -53,6 +54,7 @@ def read_corpus(file_path):
     assert len(qlist) == len(alist)  # 确保长度一样
     return qlist, alist
 
+
 def word_stat(qlist, alist):
     '''
     词频统计
@@ -63,8 +65,8 @@ def word_stat(qlist, alist):
     res_dict = dict()
     length = len(qlist)
     for i in range(length):
-        qes = re.sub(r'[^\w\s]','', qlist[i]).split(" ")
-        ans = re.sub(r'[^\w\s]','', alist[i]).split(" ")
+        qes = re.sub(r'[^\w\s]', '', qlist[i]).split(" ")
+        ans = re.sub(r'[^\w\s]', '', alist[i]).split(" ")
         for word in qes + ans:
             if word not in res_dict:
                 res_dict[word] = 1
@@ -84,18 +86,18 @@ def word_filter(sentence, qa_word_dict):
     # 处理时临时存储数组
     tmp = []
     # 过滤无用符号
-    sen = re.sub(r'[^\w\s]','', sentence).split(" ")
+    sen = re.sub(r'[^\w\s]', '', sentence).split(" ")
     # 频率在5的以下忽略
     threshold = 5
     # 去掉停用词, 低频词, 转换成小写, 统一数字字符
     for w in sen:
-        #去除停用此和低频词
+        # 去除停用此和低频词
         if w not in sWords and w in qa_word_dict and qa_word_dict[w] >= threshold:
             if w.isdigit():
-                #将数字字符统一成'#number'
+                # 将数字字符统一成'#number'
                 tmp.append("#number")
             else:
-                #转化小写
+                # 转化小写
                 cur = w.lower()
                 cur = snowball_stemmer.stem(cur)
                 tmp.append(cur)
@@ -282,10 +284,3 @@ if __name__ == '__main__':
     print(top5results_invidx(qes1, inverted_idx, vec, trans, tfidf_matrix, alist, qa_word_dict))
     print('*' * 50)
     print(top5results_invidx(qes1, inverted_idx, vec, trans, tfidf_matrix, alist, qa_word_dict))
-
-
-
-
-
-
-
